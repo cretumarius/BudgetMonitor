@@ -1,4 +1,5 @@
 ﻿using DataAccess.Configurations;
+using Domain.OCR;
 using Domain.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -32,7 +33,10 @@ namespace DataAccess.Base.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new OcrResultConfiguration());
+
             modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<OcrResult>().ToTable("OcrResults");
         }
     }
 }

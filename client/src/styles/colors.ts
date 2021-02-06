@@ -2,6 +2,10 @@ export const PRIMARY = '#1779ba';
 export const SECONDARY = '#767676';
 export const WHITE = '#FFFFFF';
 export const BLACK = '#000000';
+export const GREEN = '#88BC08';
+export const BLUE = '#1B3F74';
+export const ROSE = '#FFD1E8';
+export const ORANGE = '#E64415';
 
 // ACTIONS
 export const SUCCESS = '#3adb76';

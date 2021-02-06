@@ -3,6 +3,7 @@ using DataAccess.Base;
 using DataAccess.Base.Context;
 using DataAccess.Repository;
 using Domain.Base;
+using Domain.OCR;
 using Domain.Users;
 
 namespace Infrastructure.Autofac
@@ -15,6 +16,7 @@ namespace Infrastructure.Autofac
             builder.RegisterType<DataContext>().As<IDataContext>().InstancePerLifetimeScope();
 
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<OcrResultRepository>().As<IOcrResultRepository>().InstancePerLifetimeScope();
         }
     }
 }

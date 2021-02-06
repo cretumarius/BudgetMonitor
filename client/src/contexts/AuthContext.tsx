@@ -1,17 +1,21 @@
 import React, { createContext, useMemo, useReducer } from 'react';
+import { AuthenticationResponseModel } from '_models';
 
 interface LoginState {
   isLoading: boolean;
-  userName: string | null;
-  userToken: string | null;
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  token: string | null;
 }
 
 export interface AppAuthState {
   loginState: LoginState;
-  retrieve_token: () => void;
-  signIn: (_: string, __: string) => void;
+  retrieveToken: () => void;
+  signIn: (userData: AuthenticationResponseModel) => void;
   signOut: () => void;
-  signUp: () => void;
+  signUp: (userData: AuthenticationResponseModel) => void;
+  toggleLoading: (value: boolean) => void;
 }
 
 const loginReducer = (prevState: any, action: any) => {
@@ -19,44 +23,60 @@ const loginReducer = (prevState: any, action: any) => {
     case 'RETRIEVE_TOKEN':
       return {
         ...prevState,
-        userToken: action.userToken,
+        email: action.email,
+        firstName: action.firstName,
+        lastName: action.lastName,
+        token: action.token,
         isLoading: false,
       };
     case 'LOGIN':
       return {
         ...prevState,
-        userName: action.userName,
-        userToken: action.userToken,
+        email: action.email,
+        firstName: action.firstName,
+        lastName: action.lastName,
+        token: action.token,
         isLoading: false,
       };
     case 'LOGOUT':
       return {
         ...prevState,
-        userName: null,
-        userToken: null,
+        email: null,
+        token: null,
         isLoading: false,
       };
     case 'REGISTER':
       return {
         ...prevState,
-        userName: action.userName,
-        userToken: action.userToken,
+        email: action.email,
+        firstName: action.firstName,
+        lastName: action.lastName,
+        token: action.token,
         isLoading: false,
       };
+    case 'LOADING_TOGGLE': {
+      return {
+        ...prevState,
+        isLoading: action.isLoading,
+      };
+    }
   }
 };
 
 let initialState = {
   isLoading: true,
-  userName: null,
-  userToken: null,
+  email: null,
+  firstName: null,
+  lastName: null,
+  token: null,
 } as LoginState;
 
 let dispatcher = {
-  retrieve_token: () => {},
-  signIn: (_: string, __: string) => {},
+  retrieveToken: () => {},
+  signIn: (_: AuthenticationResponseModel) => {},
   signOut: () => {},
-  signUp: () => {},
+  signUp: (_: AuthenticationResponseModel) => {},
+  toggleLoading: (_: boolean) => {},
 };
 
 export const AuthContextProvider = ({ children }: any) => {
@@ -64,24 +84,36 @@ export const AuthContextProvider = ({ children }: any) => {
 
   dispatcher = useMemo(
     () => ({
-      retrieve_token: () => {
+      retrieveToken: () => {
         dispatch({ type: 'RETRIEVE_TOKEN' });
       },
-      signIn: (userName: string, password: string) => {
-        let token = null;
-        if (userName === 'User' && password === 'Pass') {
-          token = 'token';
-        }
+      signIn: (userData: AuthenticationResponseModel) => {
         dispatch({
           type: 'LOGIN',
-          userName: userName,
-          userToken: token,
+          email: userData.email,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          token: userData.token,
         });
       },
       signOut: () => {
         dispatch({ type: 'LOGOUT' });
       },
-      signUp: () => {},
+      signUp: (userData: AuthenticationResponseModel) => {
+        dispatch({
+          type: 'REGISTER',
+          email: userData.email,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          token: userData.token,
+        });
+      },
+      toggleLoading: (value: boolean) => {
+        dispatch({
+          type: 'LOADING_TOGGLE',
+          isLoading: value,
+        });
+      },
     }),
     [],
   );

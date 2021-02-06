@@ -21,5 +21,9 @@
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.4.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="Google.Cloud.Vision.V1" Version="2.2.0" />
+    <PackageReference Include="IronPdf" Version="2021.1.29" />
+    <PackageReference Include="PdfSharpCore" Version="1.2.11" />
+    <PackageReference Include="Open-XML-SDK" Version="2.9.1" />
   </ItemGroup>
 </Project>

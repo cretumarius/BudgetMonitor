@@ -17,6 +17,10 @@ namespace DataAccess.Configurations
             builder.Property(x => x.FirstName).HasMaxLength(20).IsRequired();
             builder.Property(x => x.LastName).HasMaxLength(40).IsRequired();
             builder.Property(x => x.PasswordHash).IsRequired();
+
+            builder.HasMany(x => x.OcrResults)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.UserId);
         }
     }
 }

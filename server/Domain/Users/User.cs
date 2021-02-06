@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using Domain.Base.EntityBase;
+using Domain.OCR;
 
 namespace Domain.Users
 {
@@ -22,7 +25,10 @@ namespace Domain.Users
 
         public string LastName { get; private set; }
 
+        [JsonIgnore]
         public string PasswordHash { get; private set; }
+
+        public IReadOnlyCollection<OcrResult> OcrResults { get; set; }
 
         public static User CreateUser(string email, string firstName, string lastName, string passwordHash)
         {

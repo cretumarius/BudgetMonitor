@@ -8,5 +8,6 @@
     <Folder Include="Base\" />
     <Folder Include="Base\EntityBase\" />
     <Folder Include="Users\" />
+    <Folder Include="OCR\" />
   </ItemGroup>
 </Project>

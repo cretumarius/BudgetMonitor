@@ -9,6 +9,8 @@ namespace Infrastructure.Autofac
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<OCRService>().As<IOCRService>();
+            builder.RegisterType<ExportService>().As<IExportService>();
         }
     }
 }

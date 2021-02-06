@@ -1,1 +1,2 @@
-export { default as HelloWorld } from './HelloWorld';
+export * from './ErrorMessage';
+export * from './XButton';
