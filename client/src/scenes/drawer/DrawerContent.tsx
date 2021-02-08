@@ -46,13 +46,13 @@ export function DrawerContent(props) {
                 props.navigation.navigate('Scanner');
               }}
             />
-            {/*<DrawerItem
-              icon={({ color, size }) => <Icon name="bookmark-outline" color={color} size={size} />}
-              label="Bookmarks"
+            <DrawerItem
+              icon={() => <Icon name="merge" color={Colors.GREEN} size={25} />}
+              label="Merge"
               onPress={() => {
-                props.navigation.navigate('BookmarkScreen');
+                props.navigation.navigate('Merge');
               }}
-            />*/}
+            />
             {/*<DrawerItem
               icon={({ color, size }) => <Icon name="settings-outline" color={color} size={size} />}
               label="Settings"
@@ -68,7 +68,7 @@ export function DrawerContent(props) {
               }}
             />*/}
           </Drawer.Section>
-         {/* <Drawer.Section title="Preferences">
+          {/* <Drawer.Section title="Preferences">
             <TouchableRipple
               onPress={() => {
                 // toggleTheme();

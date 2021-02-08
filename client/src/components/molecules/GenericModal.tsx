@@ -3,7 +3,7 @@ import { View, Modal, StyleSheet } from 'react-native';
 
 export const GenericModal = (props: { isVisible: boolean; content?: any; transparent?: boolean }) => {
   return (
-    <Modal visible={props.isVisible} animationType="slide" transparent={props.transparent}>
+    <Modal visible={props.isVisible} animationType="fade" transparent={props.transparent}>
       <View style={styles.mainContainer}>{props.content}</View>
     </Modal>
   );

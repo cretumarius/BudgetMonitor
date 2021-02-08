@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Platform, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Platform, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -44,7 +44,7 @@ const RegisterScreen = ({ navigation }: any) => {
         <Text style={styles.text_header}>Register Now!</Text>
       </View>
       <Animatable.View animation="fadeInUpBig" style={styles.footer}>
-        <KeyboardAwareScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="always">
+        <ScrollView>
           <View>
             <InputText
               name="email"
@@ -133,7 +133,7 @@ const RegisterScreen = ({ navigation }: any) => {
             <GenericButton text="Crează cont" onPress={handleSubmit(onSubmit)} />
             <GenericButton text="Login" secondary onPress={() => navigation.goBack()} />
           </View>
-        </KeyboardAwareScrollView>
+        </ScrollView>
       </Animatable.View>
     </View>
   );

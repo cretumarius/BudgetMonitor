@@ -6,6 +6,7 @@ export const GREEN = '#88BC08';
 export const BLUE = '#1B3F74';
 export const ROSE = '#FFD1E8';
 export const ORANGE = '#E64415';
+export const GRAY = '#F0F0F0';
 
 // ACTIONS
 export const SUCCESS = '#3adb76';

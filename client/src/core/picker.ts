@@ -2,7 +2,7 @@ import DocumentPicker from 'react-native-document-picker';
 import ImagePicker from 'react-native-image-crop-picker';
 import { SourcePickerEnum } from '_models';
 import { Platform } from 'react-native';
-import { SCREEN_WIDTH } from '_utils';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '_utils';
 
 export function clean() {
   ImagePicker.clean()
@@ -14,19 +14,16 @@ export function clean() {
     });
 }
 
-export async function pick(userChoice: SourcePickerEnum) {
+export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?: boolean) {
   return new Promise((resolve, reject) => {
     switch (userChoice) {
       case SourcePickerEnum.LivePhoto: {
         ImagePicker.openCamera({
-          forceJpg: true,
-          includeBase64: true,
           mediaType: 'photo',
-          cropping: true,
-          width: SCREEN_WIDTH,
-          height: 400,
+          forceJpg: true,
         })
           .then((image) => {
+            console.log(image);
             const splitUri = image.path.split('/');
             resolve([
               {
@@ -37,7 +34,6 @@ export async function pick(userChoice: SourcePickerEnum) {
                 size: image.size,
                 type: image.mime,
                 uri: image.path,
-                mime: image.mime,
                 data: image.data,
               },
             ]);
@@ -49,22 +45,36 @@ export async function pick(userChoice: SourcePickerEnum) {
         ImagePicker.openPicker({
           includeBase64: true,
           mediaType: 'photo',
-          cropping: true,
           width: SCREEN_WIDTH,
-          height: 400,
+          multiple: allowMultipleSelection,
         })
-          .then((image) => {
-            resolve({
-              name: Platform.select({
-                ios: image.filename,
-                android: image.path.substring(image.path.lastIndexOf('/') + 1),
-              }),
-              size: image.size,
-              type: image.mime,
-              uri: image.path,
-              mime: image.mime,
-              data: image.data,
-            });
+          .then((images) => {
+            if (Array.isArray(images)) {
+              resolve(
+                images.map((i) => ({
+                  name: Platform.select({
+                    ios: i.filename,
+                    android: i.path.substring(i.path.lastIndexOf('/') + 1),
+                  }),
+                  size: i.size,
+                  type: i.mime,
+                  uri: i.path,
+                  data: i.data,
+                })),
+              );
+            } else {
+              resolve({
+                name: Platform.select({
+                  ios: images.filename,
+                  android: images.path.substring(images.path.lastIndexOf('/') + 1),
+                }),
+                size: images.size,
+                type: images.mime,
+                uri: images.path,
+                mime: images.mime,
+                data: images.data,
+              });
+            }
           })
           .catch((err) => console.log(err));
         break;

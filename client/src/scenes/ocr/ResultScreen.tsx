@@ -76,7 +76,7 @@ const ResultScreen = ({ _, route }: any) => {
             </Text>
           </View>
           <View style={styles.extractedTextHeader}>
-            <Text style={{ fontFamily: Typography.FONT_FAMILY_MEDIUM, color: Colors.BLUE }}>{data.text.length}</Text>
+            <Text style={{ fontFamily: Typography.FONT_FAMILY_MEDIUM, color: Colors.BLUE }}>{data.text?.length}</Text>
             <TouchableOpacity onPress={onCopyToClipboardTap}>
               <Animatable.View animation="bounceIn">
                 <Icon name="clipboard-multiple-outline" color={Colors.BLUE} size={25} />

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { Common, Mixins, Colors, Typography } from '_styles';
-import { SCREEN_WIDTH } from '_utils';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '_utils';
 import { XButton } from '_atoms';
 import { ScanDocumentSVG, LoadingSpinnerBig } from '_resources';
 import { GenericModal } from '_molecules';
@@ -13,6 +13,7 @@ import { OcrResponseModel } from '_models';
 const ocrService = new OcrService();
 const ImagePreviewScreen = ({ navigation, route }: any) => {
   const { image } = route.params;
+  // console.log(image);
   const { loginState } = useContext(AuthContext);
   const [isLoaderVisible, setIsLoaderIsVisible] = useState<boolean>(false);
 
@@ -41,17 +42,17 @@ const ImagePreviewScreen = ({ navigation, route }: any) => {
         <View style={Common.cardContainer}>
           <View style={styles.descriptionArea}>
             <Text style={styles.descriptionText}>
-              The palatable sensation we lovingly refer to as The Cheeseburger has a distinguished and illustrious
-              history.
+              Te rugam verifica daca textul pe care doresti sa-l extragi este incadrat in imagine si se vede cat mai
+              clar.
             </Text>
             <ScanDocumentSVG style={{ flex: 1 }} />
           </View>
         </View>
         <View style={{ flex: 1, justifyContent: 'center', marginVertical: 30 }}>
-          <View style={[Common.card, { borderRadius: 10, padding: 10 }]}>
+          <View style={[Common.card, { borderRadius: 10 }]}>
             <Image
-              source={{ uri: `data:${image.mime};base64,${image.data}` }}
-              style={{ width: SCREEN_WIDTH - 20, height: 400, overflow: 'hidden' }}
+              style={{ width: SCREEN_WIDTH - 20, height: 500, resizeMode: 'contain', margin: 10 }}
+              source={image}
             />
           </View>
         </View>

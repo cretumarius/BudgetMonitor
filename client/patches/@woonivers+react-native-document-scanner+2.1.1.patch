@@ -1,0 +1,16 @@
+diff --git a/node_modules/@woonivers/react-native-document-scanner/ios/RNPdfScannerManager.m b/node_modules/@woonivers/react-native-document-scanner/ios/RNPdfScannerManager.m
+index 24e9ba6..0858566 100644
+--- a/node_modules/@woonivers/react-native-document-scanner/ios/RNPdfScannerManager.m
++++ b/node_modules/@woonivers/react-native-document-scanner/ios/RNPdfScannerManager.m
+@@ -11,11 +11,6 @@ @interface RNPdfScannerManager()
+ 
+ @implementation RNPdfScannerManager
+ 
+-- (dispatch_queue_t)methodQueue
+-{
+-    return dispatch_get_main_queue();
+-}
+-
+ RCT_EXPORT_MODULE()
+ 
+ RCT_EXPORT_VIEW_PROPERTY(onPictureTaken, RCTBubblingEventBlock)

@@ -2,6 +2,7 @@ import { SourcePickerEnum, BottomSheetOptionsModel } from '_models';
 
 export class PickerService {
   public BottomSheetOptions: BottomSheetOptionsModel[];
+  public BottomSheetOptionsForImages: BottomSheetOptionsModel[];
 
   constructor() {
     this.BottomSheetOptions = [
@@ -16,6 +17,17 @@ export class PickerService {
       {
         optionName: 'Fișiere',
         optionId: SourcePickerEnum.Files,
+      },
+    ];
+
+    this.BottomSheetOptionsForImages = [
+      {
+        optionName: 'Cameră foto',
+        optionId: SourcePickerEnum.LivePhoto,
+      },
+      {
+        optionName: 'Galerie foto',
+        optionId: SourcePickerEnum.PhotoLibrary,
       },
     ];
   }

@@ -82,6 +82,7 @@ const LoginScreen = ({ navigation }: any) => {
   };
 
   const loginHandle = (email: string, password: string) => {
+    console.log('asd');
     if (data.username.length === 0 || data.password.length === 0) {
       Banner.showError('Username or password field cannot be empty.');
       return;
@@ -95,7 +96,7 @@ const LoginScreen = ({ navigation }: any) => {
             // showSuccess('Successful authentication');
             signIn(authenticationResponse);
           } else {
-            showError(authenticationResponse.message);
+            Banner.showError(authenticationResponse.message);
           }
         }
       })

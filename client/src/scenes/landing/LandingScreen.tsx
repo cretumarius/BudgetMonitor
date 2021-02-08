@@ -11,13 +11,13 @@ const LandingScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Animatable.Image
+       {/* <Animatable.Image
           animation="bounceIn"
           duration={1500}
           source={require('_assets/images/logo.png')}
           style={styles.logo}
           resizeMode="stretch"
-        />
+        />*/}
       </View>
       <Animatable.View
         style={[

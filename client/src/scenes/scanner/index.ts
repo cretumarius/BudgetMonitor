@@ -1,1 +1,1 @@
-export { default as ScannerScreen } from './DocumentScannerScreen';
+export { default as DocumentScannerScreen } from './DocumentScannerScreen';

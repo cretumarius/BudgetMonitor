@@ -3,16 +3,25 @@ import React, { useContext } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { OCRScreen, ScannerScreen, DrawerContent, ImagePreviewScreen, ResultScreen } from '_scenes';
+import {
+  OCRScreen,
+  DrawerContent,
+  ImagePreviewScreen,
+  ResultScreen,
+  DocumentScannerScreen,
+  MergeIntroScreen,
+} from '_scenes';
 import { Colors } from '_styles';
 import { ActivityIndicator } from 'react-native';
 import { AuthContext } from '_contexts';
+import FileSelectionScreen from '../scenes/merge/FileSelectionScreen';
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
 
 const OCRStack = createStackNavigator();
 const ScannerStack = createStackNavigator();
+const MergeStack = createStackNavigator();
 
 const AppNavigator = () => {
   const { loginState } = useContext(AuthContext);
@@ -98,8 +107,8 @@ const AppNavigator = () => {
       }}
     >
       <ScannerStack.Screen
-        name={'About'}
-        component={ScannerScreen}
+        name={'Scanner'}
+        component={DocumentScannerScreen}
         options={{
           title: 'Scanner',
           headerLeft: () => (
@@ -115,10 +124,56 @@ const AppNavigator = () => {
     </ScannerStack.Navigator>
   );
 
+  const MergeStackScreen = ({ navigation }: any) => (
+    <MergeStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.GREEN,
+        },
+        headerTintColor: Colors.WHITE,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      <ScannerStack.Screen
+        name={'Merge'}
+        component={MergeIntroScreen}
+        options={{
+          title: 'Merge',
+          headerLeft: () => (
+            <Icon.Button
+              name="ios-menu"
+              size={25}
+              backgroundColor={Colors.GREEN}
+              onPress={() => navigation.openDrawer()}
+            />
+          ),
+        }}
+      />
+      <ScannerStack.Screen
+        name={'FileSelection'}
+        component={FileSelectionScreen}
+        options={{
+          title: 'Select files',
+          headerLeft: () => (
+            <Icon.Button
+              name="arrow-back"
+              size={25}
+              backgroundColor={Colors.GREEN}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+        }}
+      />
+    </MergeStack.Navigator>
+  );
+
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="OCR" component={OCRStackScreen} />
       <Drawer.Screen name="Scanner" component={ScannerStackScreen} />
+      <Drawer.Screen name="Merge" component={MergeStackScreen} />
     </Drawer.Navigator>
     /*<Tab.Navigator tabBarOptions={{ activeTintColor: Colors.PRIMARY, inactiveTintColor: Colors.SECONDARY }}>
       <Tab.Screen
