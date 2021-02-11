@@ -12,6 +12,7 @@
     <Folder Include="BusinessModels\Response\" />
     <Folder Include="BusinessModels\Request\Validation\" />
     <Folder Include="BusinessModels\Dtos\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
@@ -23,7 +24,9 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
     <PackageReference Include="Google.Cloud.Vision.V1" Version="2.2.0" />
     <PackageReference Include="IronPdf" Version="2021.1.29" />
-    <PackageReference Include="PdfSharpCore" Version="1.2.11" />
     <PackageReference Include="Open-XML-SDK" Version="2.9.1" />
+    <PackageReference Include="Microsoft.Azure.Storage.Blob" Version="11.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.11" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.7.0" />
   </ItemGroup>
 </Project>

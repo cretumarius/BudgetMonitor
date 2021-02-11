@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Platform, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAvoidingView, Platform, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import { InputText } from '_organisms';
 import { GenericButton } from '_molecules';
-import { AccountService } from '../../services/api';
+import { AccountService } from '_apiServices';
 import { RegisterRequestModel } from '_models';
 import { AuthContext } from '_contexts';
-import { showError } from '_core';
+import { Banner } from '_core';
+import { Colors } from '_styles';
 
 const RegisterScreen = ({ navigation }: any) => {
   const accountService = new AccountService();
@@ -33,15 +33,15 @@ const RegisterScreen = ({ navigation }: any) => {
     if (ok && authenticationResponse) {
       signUp(authenticationResponse);
     } else {
-      showError(authenticationResponse.message);
+      Banner.showError(authenticationResponse.message);
     }
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <View style={styles.header}>
-        <Text style={styles.text_header}>Register Now!</Text>
+        <Text style={styles.text_header}>Înregistrează-te!</Text>
       </View>
       <Animatable.View animation="fadeInUpBig" style={styles.footer}>
         <ScrollView>
@@ -59,7 +59,7 @@ const RegisterScreen = ({ navigation }: any) => {
                 },
               }}
               error={errors.email}
-              icon={<Fontisto name="email" color="#05375a" size={20} />}
+              icon={<Fontisto name="email" color={Colors.GREEN} size={20} />}
             />
           </View>
           <View style={{ marginTop: 25 }}>
@@ -72,7 +72,7 @@ const RegisterScreen = ({ navigation }: any) => {
                 required: 'Numele este obligatoriu.',
               }}
               error={errors.firstName}
-              icon={<FontAwesome name="user-o" color="#05375a" size={20} />}
+              icon={<FontAwesome name="user-o" color={Colors.GREEN} size={20} />}
             />
           </View>
           <View style={{ marginTop: 25 }}>
@@ -85,7 +85,7 @@ const RegisterScreen = ({ navigation }: any) => {
                 required: 'Prenumele este obligatoriu.',
               }}
               error={errors.lastName}
-              icon={<FontAwesome name="user-o" color="#05375a" size={20} />}
+              icon={<FontAwesome name="user-o" color={Colors.GREEN} size={20} />}
             />
           </View>
           <View style={{ marginTop: 25 }}>
@@ -99,7 +99,7 @@ const RegisterScreen = ({ navigation }: any) => {
               }}
               secureTextEntry
               error={errors.password}
-              icon={<Feather name="lock" color="#05375a" size={20} />}
+              icon={<Feather name="lock" color={Colors.GREEN} size={20} />}
             />
           </View>
 
@@ -120,7 +120,7 @@ const RegisterScreen = ({ navigation }: any) => {
               }}
               secureTextEntry
               error={errors.confirmPassword}
-              icon={<Feather name="lock" color="#05375a" size={20} />}
+              icon={<Feather name="lock" color={Colors.GREEN} size={20} />}
             />
           </View>
           {/*<View style={styles.textPrivate}>
@@ -135,7 +135,7 @@ const RegisterScreen = ({ navigation }: any) => {
           </View>
         </ScrollView>
       </Animatable.View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -144,7 +144,7 @@ export default RegisterScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387',
+    backgroundColor: Colors.GREEN,
   },
   header: {
     flex: 1,

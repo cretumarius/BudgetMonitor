@@ -1,11 +1,11 @@
 import * as Keychain from 'react-native-keychain';
 
-export const storeCredentials = async (username: string, password: string) => {
-  await Keychain.setGenericPassword(username, password, {
+export const storeCredentials = (email: string, password: string) => {
+  Keychain.setGenericPassword(email, password, {
     accessControl: Keychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET,
     securityLevel: Keychain.SECURITY_LEVEL.SECURE_SOFTWARE,
     storage: Keychain.STORAGE_TYPE.RSA,
-  });
+  }).then(() => console.log('✅ Credentials stored.'));
 };
 
 export const getBiometryType = async () => {
@@ -13,27 +13,16 @@ export const getBiometryType = async () => {
 };
 
 export const authorize = async () => {
-  try {
-    const options = {
-      accessControl: Keychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET,
-      authenticationPrompt: {
-        title: 'Authentication needed',
-        subtitle: 'Subtitle',
-        description: 'Some descriptive text',
-        cancel: 'Cancel',
-      },
-    };
-    const credentials = await Keychain.getGenericPassword(options);
-    if (credentials) {
-      return credentials;
-    } else {
-      console.log('No credentials stored.');
-      return false;
-    }
-  } catch (err) {
-    console.log('Could not load credentials. ' + err);
-    return false;
-  }
+  const options = {
+    accessControl: Keychain.ACCESS_CONTROL.BIOMETRY_CURRENT_SET,
+    authenticationPrompt: {
+      title: 'Authentication needed',
+      subtitle: 'Subtitle',
+      description: 'Some descriptive text',
+      cancel: 'Cancel',
+    },
+  };
+  return await Keychain.getGenericPassword(options);
 };
 
 export const clearCredentials = async () => {

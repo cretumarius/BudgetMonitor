@@ -1,26 +1,51 @@
-import React, { useContext } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, TextInput, Platform, StyleSheet, Dimensions } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-import { useTheme } from 'react-native-paper';
 import { AuthContext } from '_contexts';
-import { Banner } from '_core';
+import { Banner, Biometrics, SecureStorage } from '_core';
 import { AccountService } from '_apiServices';
+import { CredentialsModel } from '_models';
+import { Colors, Common, Typography } from '_styles';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import { BiometricsImg } from '_resources';
+import * as Keychain from 'react-native-keychain';
 
 const LoginScreen = ({ navigation }: any) => {
   const [data, setData] = React.useState({
-    username: 'marius.cretu@cegeka.com',
-    password: 'parola123',
+    username: 'cretu.marius@centric.eu',
+    password: 'Parola123',
     check_textInputChange: false,
     secureTextEntry: true,
     isValidUser: true,
     isValidPassword: true,
   });
 
-  const { colors } = useTheme();
+  const [showBiometrics, setShowBiometrics] = useState<boolean>(false);
+
+  useEffect(() => handleBiometricsAuthentication(), []);
+
+  const handleBiometricsAuthentication = () => {
+    Promise.all([Biometrics.getBiometryType(), SecureStorage.getItem('biometricsEnabled')]).then((result) => {
+      console.log('biometryType', result[0]);
+      console.log('biometricsEnabled', result[1] == 'true');
+
+      const biometryType = result[0];
+      const isBiometricAuthenticationEnabled = result[1] == 'true';
+      setShowBiometrics(biometryType && isBiometricAuthenticationEnabled);
+      if (biometryType && isBiometricAuthenticationEnabled) {
+        Biometrics.authorize().then((res: false | Keychain.UserCredentials) => {
+          if (res) {
+            loginHandle(res.username, res.password);
+          } else {
+            Banner.showError('Ceva nu a mers bine');
+          }
+        });
+      }
+    });
+  };
 
   const accountService = new AccountService();
 
@@ -82,7 +107,6 @@ const LoginScreen = ({ navigation }: any) => {
   };
 
   const loginHandle = (email: string, password: string) => {
-    console.log('asd');
     if (data.username.length === 0 || data.password.length === 0) {
       Banner.showError('Username or password field cannot be empty.');
       return;
@@ -93,46 +117,53 @@ const LoginScreen = ({ navigation }: any) => {
         const authenticationResponse = response.data;
         if (authenticationResponse) {
           if (response.ok) {
-            // showSuccess('Successful authentication');
-            signIn(authenticationResponse);
+            signIn(authenticationResponse, { email: email, password: password } as CredentialsModel);
           } else {
             Banner.showError(authenticationResponse.message);
           }
         }
       })
       .catch((err) => console.log(err));
-
-    /*if (foundUser.length == 0) {
-      Alert.alert('Invalid User!', 'Username or password is incorrect.', [{ text: 'Okay' }]);
-      return;
-    }
-    signIn(foundUser);*/
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome!</Text>
-      </View>
+      {showBiometrics ? (
+        <View style={styles.header}>
+          <View style={[Common.card, { borderRadius: 100 }]}>
+            <Animatable.Image
+              animation="bounceIn"
+              duration={1500}
+              source={BiometricsImg}
+              style={styles.logo}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+      ) : (
+        <View style={styles.heade2}>
+          <Text style={styles.text_header}>Autentificare</Text>
+        </View>
+      )}
       <Animatable.View
         animation="fadeInUpBig"
         style={[
           styles.footer,
           {
-            backgroundColor: colors.background,
+            backgroundColor: Colors.WHITE,
           },
         ]}
       >
         <Text style={styles.text_footer}>Email</Text>
         <View style={styles.action}>
-          <FontAwesome name="user-o" color={colors.text} size={20} />
+          <Fontisto name="email" color={Colors.GREEN} size={20} />
           <TextInput
             placeholder="Your Email"
             placeholderTextColor="#666666"
             style={[
               styles.textInput,
               {
-                color: colors.text,
+                color: Colors.BLACK,
               },
             ]}
             autoCapitalize="none"
@@ -141,7 +172,7 @@ const LoginScreen = ({ navigation }: any) => {
           />
           {data.check_textInputChange ? (
             <Animatable.View animation="bounceIn">
-              <Feather name="check-circle" color="green" size={20} />
+              <Feather name="check-circle" color={Colors.GREEN} size={20} />
             </Animatable.View>
           ) : null}
         </View>
@@ -159,10 +190,10 @@ const LoginScreen = ({ navigation }: any) => {
             },
           ]}
         >
-          Password
+          Parola
         </Text>
         <View style={styles.action}>
-          <Feather name="lock" color={colors.text} size={20} />
+          <Feather name="lock" color={Colors.GREEN} size={20} />
           <TextInput
             placeholder="Your Password"
             placeholderTextColor="#666666"
@@ -170,7 +201,7 @@ const LoginScreen = ({ navigation }: any) => {
             style={[
               styles.textInput,
               {
-                color: colors.text,
+                color: Colors.BLACK,
               },
             ]}
             autoCapitalize="none"
@@ -180,18 +211,18 @@ const LoginScreen = ({ navigation }: any) => {
             {data.secureTextEntry ? (
               <Feather name="eye-off" color="grey" size={20} />
             ) : (
-              <Feather name="eye" color="grey" size={20} />
+              <Feather name="eye" color={Colors.GREEN} size={20} />
             )}
           </TouchableOpacity>
         </View>
         {data.isValidPassword ? null : (
           <Animatable.View animation="fadeInLeft" duration={500}>
-            <Text style={styles.errorMsg}>Password must be 8 characters long.</Text>
+            <Text style={styles.errorMsg}>Parola trebuie sa aibă minim 8 caractere</Text>
           </Animatable.View>
         )}
 
         <TouchableOpacity>
-          <Text style={{ color: '#009387', marginTop: 15 }}>Forgot password?</Text>
+          <Text style={{ color: '#009387', marginTop: 15 }}>Ai uitat parola?</Text>
         </TouchableOpacity>
         <View style={styles.button}>
           <TouchableOpacity
@@ -200,7 +231,7 @@ const LoginScreen = ({ navigation }: any) => {
               loginHandle(data.username, data.password);
             }}
           >
-            <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
+            <LinearGradient colors={[Colors.GREEN, '#01ab9d']} style={styles.signIn}>
               <Text
                 style={[
                   styles.textSign,
@@ -219,7 +250,7 @@ const LoginScreen = ({ navigation }: any) => {
             style={[
               styles.signIn,
               {
-                borderColor: '#009387',
+                borderColor: Colors.GREEN,
                 borderWidth: 1,
                 marginTop: 15,
               },
@@ -229,7 +260,7 @@ const LoginScreen = ({ navigation }: any) => {
               style={[
                 styles.textSign,
                 {
-                  color: '#009387',
+                  color: Colors.GREEN,
                 },
               ]}
             >
@@ -244,12 +275,20 @@ const LoginScreen = ({ navigation }: any) => {
 
 export default LoginScreen;
 
+const { height } = Dimensions.get('screen');
+const height_logo = height * 0.2;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387',
+    backgroundColor: Colors.GREEN,
   },
   header: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heade2: {
     flex: 1,
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
@@ -269,7 +308,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   text_footer: {
-    color: '#05375a',
+    color: Colors.BLUE,
     fontSize: 18,
   },
   action: {
@@ -310,6 +349,11 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  logo: {
+    width: height_logo,
+    height: height_logo,
+    borderRadius: 100,
   },
 });
 /*

@@ -16,6 +16,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Azure.Storage.Blobs;
+using Business;
+using Business.Base;
+using System.Collections.Generic;
 
 namespace API
 {
@@ -34,6 +38,8 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            IronPdf.License.LicenseKey = "IRONPDF.DEVTEAM.2430-B4C2ABF860-CX7UPRCGSBXAL5S-EQPLEYXQ64LR-ESZDXVYQDA5H-CUGEEQKSKBGU-YE2EH5VZZDQV-M73B2B-TRA47BMT23N4UA-DEPLOYMENT.TRIAL-L3V65R.TRIAL.EXPIRES.17.FEB.2021";
             services.AddDbContext<DataContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -86,6 +92,7 @@ namespace API
 
             // configure strongly typed settings object
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            ConfigureAzureBlobContainer(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -122,6 +129,27 @@ namespace API
         {
             builder.RegisterModule(new BussinessDependencyModule());
             builder.RegisterModule(new DataAccessDependencyModule());
+        }
+
+        private void ConfigureAzureBlobContainer(IServiceCollection services)
+        {
+            AzureBlobContainerClientFactory factory = key =>
+            {
+                switch (key)
+                {
+                    case BlobContainerNames.DocumentsContainerName:
+                        return new AzureBlobContainerClient(
+                            new BlobContainerClient(Configuration["CloudStorageConnectionString"], Configuration["BlobContainerName"]));
+                    default:
+                        throw new KeyNotFoundException();
+                }
+            };
+
+            services.AddScoped(serviceProvider => factory);
+#if DEBUG
+            factory(BlobContainerNames.DocumentsContainerName).CreateIfNotExists();
+#endif
+
         }
     }
 }

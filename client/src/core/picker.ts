@@ -21,22 +21,22 @@ export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?
         ImagePicker.openCamera({
           mediaType: 'photo',
           forceJpg: true,
+          cropping: true,
+          compressImageMaxWidth: 750,
+          compressImageQuality: 1,
         })
           .then((image) => {
-            console.log(image);
             const splitUri = image.path.split('/');
-            resolve([
-              {
-                name: Platform.select({
-                  ios: image.filename || splitUri[splitUri.length - 1],
-                  android: image.path.substring(image.path.lastIndexOf('/') + 1),
-                }),
-                size: image.size,
-                type: image.mime,
-                uri: image.path,
-                data: image.data,
-              },
-            ]);
+            resolve({
+              name: Platform.select({
+                ios: image.filename || splitUri[splitUri.length - 1],
+                android: image.path.substring(image.path.lastIndexOf('/') + 1),
+              }),
+              size: image.size,
+              type: image.mime,
+              uri: image.path,
+              data: image.data,
+            });
           })
           .catch((err) => console.log(err));
         break;
@@ -46,6 +46,8 @@ export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?
           includeBase64: true,
           mediaType: 'photo',
           width: SCREEN_WIDTH,
+          compressImageMaxWidth: 750,
+          compressImageQuality: 1,
           multiple: allowMultipleSelection,
         })
           .then((images) => {

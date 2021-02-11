@@ -1,2 +1,2 @@
 export { default as MergeIntroScreen } from './MergeIntroScreen';
-export { default as FileeSelectionScreen } from './FileSelectionScreen';
+export { default as FileSelectionScreen } from './FileSelectionScreen';

@@ -4,6 +4,7 @@ import * as Animatable from 'react-native-animatable';
 import Feather from 'react-native-vector-icons/Feather';
 import { FieldError, Controller, Control } from 'react-hook-form';
 import { ErrorMessage } from '_atoms';
+import { Colors } from '_styles';
 
 export const InputText = (props: {
   label: string;
@@ -44,7 +45,7 @@ export const InputText = (props: {
             {showPassword ? (
               <Feather name="eye-off" color="grey" size={20} />
             ) : (
-              <Feather name="eye" color="grey" size={20} />
+              <Feather name="eye" color={Colors.GREEN} size={20} />
             )}
           </TouchableOpacity>
         ) : shouldValidate && !props.error ? (

@@ -89,9 +89,9 @@ const DocumentScannerScreen = () => {
         <View style={Common.cardContainer}>
           <ScannerSVG />
           <Text style={{ fontFamily: Typography.FONT_FAMILY_REGULAR, color: Colors.BLUE, margin: 30 }}>
-            {'Crop rectangle area and export to documents directory'}
+            {'Detectează ți decupează în mod automat zona dreptunghiulară prin deschiderea camerei, exportă și salvează în folderul aplicației'}
           </Text>
-          <XButton styles={{ margin: 20 }} title={'Scan'} onPressCallback={() => setIsCameraVisible(true)} />
+          <XButton styles={{ margin: 20 }} title={'Scanează'} onPressCallback={() => setIsCameraVisible(true)} />
         </View>
       )}
       <GenericModal isVisible={isCameraVisible} content={renderContent()} />

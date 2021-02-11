@@ -5,3 +5,4 @@ export * from './login';
 export * from './register';
 export * from './scanner';
 export * from './merge';
+export * from './biometrics';

@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useTheme } from '@react-navigation/native';
-
+import { Colors, Common, Typography } from '_styles';
+import { AuthContext } from '_contexts';
 const LandingScreen = ({ navigation }: any) => {
-  const { colors } = useTheme();
+  const { loginState } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-       {/* <Animatable.Image
-          animation="bounceIn"
-          duration={1500}
-          source={require('_assets/images/logo.png')}
-          style={styles.logo}
-          resizeMode="stretch"
-        />*/}
+        <View style={[Common.card, { borderRadius: 100 }]}>
+          {!!loginState.firstName?.charAt(0) && (
+            <Animatable.View
+              animation="pulse"
+              iterationCount="infinite"
+              style={[styles.logo, { justifyContent: 'center', alignItems: 'center' }]}
+            >
+              <Text
+                style={{ fontFamily: Typography.FONT_FAMILY_REGULAR, fontSize: 58 }}
+              >{`${loginState.firstName?.charAt(0)} ${loginState.lastName?.charAt(0)}`}</Text>
+            </Animatable.View>
+          )}
+        </View>
       </View>
       <Animatable.View
         style={[
           styles.footer,
           {
-            backgroundColor: colors.background,
+            backgroundColor: Colors.WHITE,
           },
         ]}
         animation="fadeInUpBig"
@@ -32,16 +38,16 @@ const LandingScreen = ({ navigation }: any) => {
           style={[
             styles.title,
             {
-              color: colors.text,
+              color: Colors.BLACK,
             },
           ]}
         >
-          Bine ai venit!
+          {`Bine ai venit ${loginState.firstName} ${loginState.lastName}!`}
         </Text>
         <Text style={styles.text}>{''}</Text>
         <View style={styles.button}>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
+            <LinearGradient colors={[Colors.GREEN, '#01ab9d']} style={styles.signIn}>
               <Text style={styles.textSign}>Continuă</Text>
               <MaterialIcons name="navigate-next" color="#fff" size={20} />
             </LinearGradient>
@@ -55,12 +61,12 @@ const LandingScreen = ({ navigation }: any) => {
 export default LandingScreen;
 
 const { height } = Dimensions.get('screen');
-const height_logo = height * 0.28;
+const height_logo = height * 0.2;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387',
+    backgroundColor: Colors.GREEN,
   },
   header: {
     flex: 2,
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
   logo: {
     width: height_logo,
     height: height_logo,
+    borderRadius: 100,
   },
   title: {
     color: '#05375a',

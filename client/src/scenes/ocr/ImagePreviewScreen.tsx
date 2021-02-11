@@ -60,11 +60,11 @@ const ImagePreviewScreen = ({ navigation, route }: any) => {
       <View style={styles.buttonsArea}>
         <XButton
           styles={{ width: SCREEN_WIDTH / 2 - 50 }}
-          title="Renunta"
+          title="Renunță"
           cancel
           onPressCallback={() => console.log('asd')}
         />
-        <XButton styles={{ width: SCREEN_WIDTH / 2 - 50 }} title="Continua" onPressCallback={() => onContinueTap()} />
+        <XButton styles={{ width: SCREEN_WIDTH / 2 - 50 }} title="Continuă" onPressCallback={() => onContinueTap()} />
       </View>
       <GenericModal
         isVisible={isLoaderVisible}

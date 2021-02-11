@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { AccordionGroup, ExpandButton, File, XButton } from '_atoms';
 import { BottomSheetStateModel, FileModel, SourcePickerEnum } from '_models';
 import { XBottomSheet } from '_organisms';
 import { PickerService } from '_controllerServices';
-import { DocumentsPicker, Banner } from '_core';
-import { showSuccess } from '../../core/notification-bannner';
+import { DocumentsPicker } from '_core';
+import { AuthContext } from '_contexts';
+import { MergeService } from '../../services/api/merge.service';
+import FileViewer from 'react-native-file-viewer';
 
 interface FileSet {
   id: number;
@@ -20,8 +22,10 @@ const data: FileSet[] = [
 const shortid = require('shortid');
 
 const pickerService = new PickerService();
+const mergeApiService = new MergeService();
 
 const FileSelectionScreen = () => {
+  const { loginState } = useContext(AuthContext);
   const [state, setState] = useState<FileSet[]>(data);
 
   const [bottomSheetState, setBottomSheetState] = useState<BottomSheetStateModel>({
@@ -62,8 +66,28 @@ const FileSelectionScreen = () => {
     });
   }
 
+  const showFile = (path: string) => {
+    FileViewer.open(path)
+      .then(() => {})
+      .catch((error) => {
+        console.log('Invalid path or deleted file.', error);
+      });
+  };
+
   const onMergeTap = () => {
-    Banner.showSuccess('Merge-ul a fost salvat cu success');
+    const data = new FormData();
+    state.forEach((fileSet) =>
+      fileSet.files.forEach((f) =>
+        data.append(`files`, {
+          uri: f.uri,
+          name: f.name,
+          type: f.type,
+        }),
+      ),
+    );
+    mergeApiService
+      .mergeDocuments(data, loginState.token as string)
+      .then((resp) => mergeApiService.downloadPdf(resp.data).then((resp) => showFile(resp.path())));
   };
 
   return (
@@ -97,7 +121,7 @@ const FileSelectionScreen = () => {
         />
         {/*<Text style={styles.infoText}>{translate('Claims.DocumentsPicker.Info')}</Text>*/}
       </ScrollView>
-      <XButton styles={{ padding: 20 }} title="Merge documents" onPressCallback={onMergeTap} />
+      <XButton styles={{ padding: 20 }} title="Comasează documente" onPressCallback={onMergeTap} />
     </>
   );
 };

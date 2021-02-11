@@ -1,6 +1,7 @@
 import LinearGradient from 'react-native-linear-gradient';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { Colors } from '_styles';
 
 export const GenericButton = (props: {
   text: string;
@@ -9,7 +10,7 @@ export const GenericButton = (props: {
   onPress: () => void;
 }) => {
   const Primary = () => {
-    const enabledColorsScheme = ['#08d4c4', '#01ab9d'];
+    const enabledColorsScheme = [Colors.GREEN, '#01ab9d'];
     const disableColorsScheme = ['lightgray', 'gray'];
     return (
       <TouchableOpacity style={styles.signIn} onPress={props.onPress} disabled={props.disabled}>
@@ -36,7 +37,7 @@ export const GenericButton = (props: {
         style={[
           styles.signIn,
           {
-            borderColor: '#009387',
+            borderColor: Colors.GREEN,
             borderWidth: 1,
             marginTop: 15,
           },

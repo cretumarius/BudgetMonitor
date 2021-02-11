@@ -11,6 +11,8 @@ namespace Infrastructure.Autofac
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<OCRService>().As<IOCRService>();
             builder.RegisterType<ExportService>().As<IExportService>();
+            builder.RegisterType<MergeService>().As<IMergeService>();
+            builder.RegisterType<UploadService>().As<IUploadService>();
         }
     }
 }

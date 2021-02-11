@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,21 +10,51 @@ import {
   ResultScreen,
   DocumentScannerScreen,
   MergeIntroScreen,
+  FileSelectionScreen,
+  BiometricsActivationScreen,
 } from '_scenes';
 import { Colors } from '_styles';
 import { ActivityIndicator } from 'react-native';
 import { AuthContext } from '_contexts';
-import FileSelectionScreen from '../scenes/merge/FileSelectionScreen';
+import { Biometrics, SecureStorage } from '_core';
+import { GenericModal } from '_molecules';
 
 const Drawer = createDrawerNavigator();
-// const Tab = createBottomTabNavigator();
 
 const OCRStack = createStackNavigator();
 const ScannerStack = createStackNavigator();
 const MergeStack = createStackNavigator();
 
 const AppNavigator = () => {
-  const { loginState } = useContext(AuthContext);
+  const { loginState, toggleBiometricsActivationModalVisibleState } = useContext(AuthContext);
+
+  useEffect(() => handleBiometricsSetup(), []);
+
+  const handleBiometricsSetup = () => {
+    Promise.all([
+      Biometrics.getBiometryType(),
+      SecureStorage.getItem('biometricsActivationSkipped'),
+      SecureStorage.getItem('biometricsConfigured'),
+    ]).then((result) => {
+      /*console.log('biometryType', result[0]);
+      console.log('userHasSkippedActivation', Boolean(result[1]));
+      console.log('biometricsConfigured', result[2]);*/
+      const biometryType = result[0];
+      const userHasSkippedActivation = result[1];
+      const biometricsConfigured = result[2];
+      if (biometryType && !biometricsConfigured && !userHasSkippedActivation) {
+        setTimeout(() => toggleBiometricsActivationModalVisibleState(true), 1000);
+      }
+    });
+  };
+
+  const onBiometricsActivationSkip = async (wasSkipped: boolean) => {
+    if (wasSkipped) {
+      await SecureStorage.setItem('biometricsConfigured', 'false');
+      await SecureStorage.setItem('biometricsActivationSkipped', 'true');
+    }
+    toggleBiometricsActivationModalVisibleState(false);
+  };
 
   const OCRStackScreen = ({ navigation }: any) => (
     <OCRStack.Navigator
@@ -57,7 +87,7 @@ const AppNavigator = () => {
         name={'ImagePreview'}
         component={ImagePreviewScreen}
         options={{
-          title: 'Image preview',
+          title: 'Previzualizare',
           headerLeft: () => (
             <Icon.Button
               name="arrow-back"
@@ -155,7 +185,7 @@ const AppNavigator = () => {
         name={'FileSelection'}
         component={FileSelectionScreen}
         options={{
-          title: 'Select files',
+          title: 'Selectează fișiere',
           headerLeft: () => (
             <Icon.Button
               name="arrow-back"
@@ -170,28 +200,18 @@ const AppNavigator = () => {
   );
 
   return (
-    <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-      <Drawer.Screen name="OCR" component={OCRStackScreen} />
-      <Drawer.Screen name="Scanner" component={ScannerStackScreen} />
-      <Drawer.Screen name="Merge" component={MergeStackScreen} />
-    </Drawer.Navigator>
-    /*<Tab.Navigator tabBarOptions={{ activeTintColor: Colors.PRIMARY, inactiveTintColor: Colors.SECONDARY }}>
-      <Tab.Screen
-        name="home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: 'Home',
-        }}
+    <>
+      <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+        <Drawer.Screen name="OCR" component={OCRStackScreen} />
+        <Drawer.Screen name="Scanner" component={ScannerStackScreen} />
+        <Drawer.Screen name="Merge" component={MergeStackScreen} />
+      </Drawer.Navigator>
+      <GenericModal
+        isVisible={loginState.biometricsActivationModalIsVisible}
+        content={<BiometricsActivationScreen closeCallback={(wasSkipped) => onBiometricsActivationSkip(wasSkipped)} />}
+        animation="slide"
       />
-      <Tab.Screen
-        name="About"
-        component={AboutScreen}
-        options={{
-          unmountOnBlur: true,
-          tabBarLabel: 'About',
-        }}
-      />
-    </Tab.Navigator>*/
+    </>
   );
 };
 

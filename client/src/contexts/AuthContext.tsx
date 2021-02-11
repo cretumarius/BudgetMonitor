@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useReducer } from 'react';
-import { AuthenticationResponseModel } from '_models';
+import { AuthenticationResponseModel, CredentialsModel } from '_models';
+import { Biometrics, SecureStorage } from '_core';
 
 interface LoginState {
   isLoading: boolean;
@@ -7,15 +8,19 @@ interface LoginState {
   firstName: string | null;
   lastName: string | null;
   token: string | null;
+  biometricsEnabled: boolean;
+  biometricsActivationModalIsVisible: boolean;
 }
 
 export interface AppAuthState {
   loginState: LoginState;
   retrieveToken: () => void;
-  signIn: (userData: AuthenticationResponseModel) => void;
+  signIn: (userData: AuthenticationResponseModel, credentials: CredentialsModel) => void;
   signOut: () => void;
   signUp: (userData: AuthenticationResponseModel) => void;
   toggleLoading: (value: boolean) => void;
+  toggleBiometrics: (value: boolean) => void;
+  toggleBiometricsActivationModalVisibleState: (value: boolean) => void;
 }
 
 const loginReducer = (prevState: any, action: any) => {
@@ -28,6 +33,7 @@ const loginReducer = (prevState: any, action: any) => {
         lastName: action.lastName,
         token: action.token,
         isLoading: false,
+        biometricsEnabled: action.biometricsEnabled == 'true',
       };
     case 'LOGIN':
       return {
@@ -60,23 +66,39 @@ const loginReducer = (prevState: any, action: any) => {
         isLoading: action.isLoading,
       };
     }
+    case 'BIOMETRICS_TOGGLE': {
+      return {
+        ...prevState,
+        biometricsEnabled: action.biometricsEnabled,
+      };
+    }
+    case 'BIOMETRICS_ACTIVATION_MODAL_VISIBLE_STATE_TOGGLE': {
+      return {
+        ...prevState,
+        biometricsActivationModalIsVisible: action.biometricsActivationModalIsVisible,
+      };
+    }
   }
 };
 
 let initialState = {
   isLoading: true,
-  email: null,
-  firstName: null,
-  lastName: null,
-  token: null,
+  email: '',
+  firstName: '',
+  lastName: '',
+  token: '',
+  biometricsEnabled: false,
+  biometricsActivationModalIsVisible: false,
 } as LoginState;
 
 let dispatcher = {
   retrieveToken: () => {},
-  signIn: (_: AuthenticationResponseModel) => {},
+  signIn: (_: AuthenticationResponseModel, __: CredentialsModel) => {},
   signOut: () => {},
   signUp: (_: AuthenticationResponseModel) => {},
   toggleLoading: (_: boolean) => {},
+  toggleBiometrics: (_: boolean) => {},
+  toggleBiometricsActivationModalVisibleState: (_: boolean) => {},
 };
 
 export const AuthContextProvider = ({ children }: any) => {
@@ -85,9 +107,20 @@ export const AuthContextProvider = ({ children }: any) => {
   dispatcher = useMemo(
     () => ({
       retrieveToken: () => {
-        dispatch({ type: 'RETRIEVE_TOKEN' });
+        SecureStorage.getAllItem().then((items) => {
+          console.log('userData', items);
+          dispatch({
+            type: 'RETRIEVE_TOKEN',
+            firstName: items.firstName || '',
+            lastName: items.lastName || '',
+            // token: items.token,
+            biometricsEnabled: items.biometricsEnabled,
+          });
+        });
       },
-      signIn: (userData: AuthenticationResponseModel) => {
+      signIn: (userData: AuthenticationResponseModel, credentials: CredentialsModel) => {
+        Object.entries(userData).forEach(([key, value]) => SecureStorage.setItem(key, value));
+        Biometrics.storeCredentials(credentials.email, credentials.password);
         dispatch({
           type: 'LOGIN',
           email: userData.email,
@@ -112,6 +145,18 @@ export const AuthContextProvider = ({ children }: any) => {
         dispatch({
           type: 'LOADING_TOGGLE',
           isLoading: value,
+        });
+      },
+      toggleBiometrics: (value: boolean) => {
+        dispatch({
+          type: 'BIOMETRICS_TOGGLE',
+          biometricsEnabled: value,
+        });
+      },
+      toggleBiometricsActivationModalVisibleState: (value: boolean) => {
+        dispatch({
+          type: 'BIOMETRICS_ACTIVATION_MODAL_VISIBLE_STATE_TOGGLE',
+          biometricsActivationModalIsVisible: value,
         });
       },
     }),

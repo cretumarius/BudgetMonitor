@@ -9,11 +9,13 @@ export const MergeIntroScreen = ({ navigation }: any) => {
     <View style={Common.cardContainer}>
       <MergeSVG />
       <Text style={{ fontFamily: Typography.FONT_FAMILY_REGULAR, color: Colors.BLUE, margin: 30 }}>
-        {'Merge images (JPG, BMP, TIFF, GIF) and pdfs into one final output pdf'}
+        {
+          'Comasează imagini (JPG, BMP, TIFF, GIF) și pdf-uri într-un singur pdf rezultat pe care îl salvează în folderul Documente'
+        }
       </Text>
       <XButton
         styles={{ margin: 20 }}
-        title={'Continua'}
+        title={'Continuă'}
         onPressCallback={() => navigation.navigate('FileSelection')}
       />
     </View>

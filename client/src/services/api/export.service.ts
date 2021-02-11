@@ -13,12 +13,17 @@ export class ExportService extends BaseService {
   };
 
   public async downloadPdf(ocr: OcrResponseModel): Promise<FetchBlobResponse> {
-    return Download.file(`${this.api.getBaseURL()}${exportPdfApiUrl}?ocrResultId=${ocr.resultId}`, this.Extensions.Pdf);
+    return Download.file(
+      `${this.api.getBaseURL()}${exportPdfApiUrl}?ocrResultId=${ocr.resultId}`,
+      'exported',
+      this.Extensions.Pdf,
+    );
   }
 
   public async downloadWord(ocr: OcrResponseModel): Promise<FetchBlobResponse> {
     return Download.file(
       `${this.api.getBaseURL()}${exportWordApiUrl}?ocrResultId=${ocr.resultId}`,
+      'exported',
       this.Extensions.Word,
     );
   }
