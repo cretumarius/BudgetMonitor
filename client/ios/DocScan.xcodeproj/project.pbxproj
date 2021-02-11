@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* BudgetMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BudgetMonitorTests.m */; };
-		01E20BFEF624AAB0E3B10442 /* libPods-BudgetMonitor-BudgetMonitorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE14FF99FF93449AF38CA21D /* libPods-BudgetMonitor-BudgetMonitorTests.a */; };
+		00E356F31AD99517003FC87E /* DocScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DocScanTests.m */; };
+		01E20BFEF624AAB0E3B10442 /* libPods-DocScan-DocScanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE14FF99FF93449AF38CA21D /* libPods-DocScan-DocScanTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -18,11 +18,11 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* BudgetMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BudgetMonitorTests.m */; };
-		3CE5E0B85C8DC5EA7D8EB4C3 /* libPods-BudgetMonitor-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BCE37DD8ED0106753A46FB /* libPods-BudgetMonitor-tvOSTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* DocScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DocScanTests.m */; };
+		3CE5E0B85C8DC5EA7D8EB4C3 /* libPods-DocScan-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BCE37DD8ED0106753A46FB /* libPods-DocScan-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		ACFFAC7F47BCC0DAE1025C0B /* libPods-BudgetMonitor-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E67609F6F076D9954F7573 /* libPods-BudgetMonitor-tvOS.a */; };
-		E2EF17FC07BAA59B42703EFD /* libPods-BudgetMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E515C25403C62D388807633 /* libPods-BudgetMonitor.a */; };
+		ACFFAC7F47BCC0DAE1025C0B /* libPods-DocScan-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E67609F6F076D9954F7573 /* libPods-DocScan-tvOS.a */; };
+		E2EF17FC07BAA59B42703EFD /* libPods-DocScan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E515C25403C62D388807633 /* libPods-DocScan.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,46 +31,46 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = BudgetMonitor;
+			remoteInfo = DocScan;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "BudgetMonitor-tvOS";
+			remoteInfo = "DocScan-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* BudgetMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgetMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* DocScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* BudgetMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgetMonitorTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BudgetMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BudgetMonitor/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BudgetMonitor/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BudgetMonitor/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BudgetMonitor/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BudgetMonitor/main.m; sourceTree = "<group>"; };
-		14E55A22F4D28D86A8082A95 /* Pods-BudgetMonitor-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-tvOSTests/Pods-BudgetMonitor-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* DocScanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocScanTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* DocScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DocScan/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = DocScan/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DocScan/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DocScan/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DocScan/main.m; sourceTree = "<group>"; };
+		14E55A22F4D28D86A8082A95 /* Pods-DocScan-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-DocScan-tvOSTests/Pods-DocScan-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		1741242225CC3519005E367E /* AzoSans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AzoSans-Medium.otf"; path = "../../src/assets/fonts/AzoSans-Medium.otf"; sourceTree = "<group>"; };
 		1741242325CC3519005E367E /* AzoSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AzoSans-Regular.otf"; path = "../../src/assets/fonts/AzoSans-Regular.otf"; sourceTree = "<group>"; };
 		1741242425CC3519005E367E /* AzoSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AzoSans-Light.otf"; path = "../../src/assets/fonts/AzoSans-Light.otf"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* BudgetMonitor-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BudgetMonitor-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* BudgetMonitor-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BudgetMonitor-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F04470DF1114F27EDB27DA6 /* Pods-BudgetMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor.debug.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor/Pods-BudgetMonitor.debug.xcconfig"; sourceTree = "<group>"; };
-		54E67609F6F076D9954F7573 /* libPods-BudgetMonitor-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BudgetMonitor-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E515C25403C62D388807633 /* libPods-BudgetMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BudgetMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AFD1BC78943B1DF724A3CA9 /* Pods-BudgetMonitor-BudgetMonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-BudgetMonitorTests.release.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-BudgetMonitorTests/Pods-BudgetMonitor-BudgetMonitorTests.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BudgetMonitor/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		88E39443F9E79FB68D47B915 /* Pods-BudgetMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor.release.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor/Pods-BudgetMonitor.release.xcconfig"; sourceTree = "<group>"; };
-		915D31D0954503761833B7D6 /* Pods-BudgetMonitor-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-tvOS/Pods-BudgetMonitor-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		92CF54855169B2F3D6C34DE7 /* Pods-BudgetMonitor-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-tvOS.release.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-tvOS/Pods-BudgetMonitor-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		A9BCE37DD8ED0106753A46FB /* libPods-BudgetMonitor-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BudgetMonitor-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE14FF99FF93449AF38CA21D /* libPods-BudgetMonitor-BudgetMonitorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BudgetMonitor-BudgetMonitorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C13E49021402C4A79D56FC3A /* Pods-BudgetMonitor-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-tvOSTests/Pods-BudgetMonitor-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C86100A3B337131E8151719C /* Pods-BudgetMonitor-BudgetMonitorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetMonitor-BudgetMonitorTests.debug.xcconfig"; path = "Target Support Files/Pods-BudgetMonitor-BudgetMonitorTests/Pods-BudgetMonitor-BudgetMonitorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* DocScan-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DocScan-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* DocScan-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DocScan-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F04470DF1114F27EDB27DA6 /* Pods-DocScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan.debug.xcconfig"; path = "Target Support Files/Pods-DocScan/Pods-DocScan.debug.xcconfig"; sourceTree = "<group>"; };
+		54E67609F6F076D9954F7573 /* libPods-DocScan-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DocScan-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E515C25403C62D388807633 /* libPods-DocScan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DocScan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFD1BC78943B1DF724A3CA9 /* Pods-DocScan-DocScanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-DocScanTests.release.xcconfig"; path = "Target Support Files/Pods-DocScan-DocScanTests/Pods-DocScan-DocScanTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DocScan/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88E39443F9E79FB68D47B915 /* Pods-DocScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan.release.xcconfig"; path = "Target Support Files/Pods-DocScan/Pods-DocScan.release.xcconfig"; sourceTree = "<group>"; };
+		915D31D0954503761833B7D6 /* Pods-DocScan-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-DocScan-tvOS/Pods-DocScan-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		92CF54855169B2F3D6C34DE7 /* Pods-DocScan-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-tvOS.release.xcconfig"; path = "Target Support Files/Pods-DocScan-tvOS/Pods-DocScan-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		A9BCE37DD8ED0106753A46FB /* libPods-DocScan-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DocScan-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE14FF99FF93449AF38CA21D /* libPods-DocScan-DocScanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DocScan-DocScanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C13E49021402C4A79D56FC3A /* Pods-DocScan-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DocScan-tvOSTests/Pods-DocScan-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C86100A3B337131E8151719C /* Pods-DocScan-DocScanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DocScan-DocScanTests.debug.xcconfig"; path = "Target Support Files/Pods-DocScan-DocScanTests/Pods-DocScan-DocScanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E20BFEF624AAB0E3B10442 /* libPods-BudgetMonitor-BudgetMonitorTests.a in Frameworks */,
+				01E20BFEF624AAB0E3B10442 /* libPods-DocScan-DocScanTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2EF17FC07BAA59B42703EFD /* libPods-BudgetMonitor.a in Frameworks */,
+				E2EF17FC07BAA59B42703EFD /* libPods-DocScan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACFFAC7F47BCC0DAE1025C0B /* libPods-BudgetMonitor-tvOS.a in Frameworks */,
+				ACFFAC7F47BCC0DAE1025C0B /* libPods-DocScan-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,20 +104,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CE5E0B85C8DC5EA7D8EB4C3 /* libPods-BudgetMonitor-tvOSTests.a in Frameworks */,
+				3CE5E0B85C8DC5EA7D8EB4C3 /* libPods-DocScan-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* BudgetMonitorTests */ = {
+		00E356EF1AD99517003FC87E /* DocScanTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* BudgetMonitorTests.m */,
+				00E356F21AD99517003FC87E /* DocScanTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = BudgetMonitorTests;
+			path = DocScanTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -128,7 +128,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* BudgetMonitor */ = {
+		13B07FAE1A68108700A75B9A /* DocScan */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -139,7 +139,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = BudgetMonitor;
+			name = DocScan;
 			sourceTree = "<group>";
 		};
 		1741242125CC3503005E367E /* Resources */ = {
@@ -157,10 +157,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				5E515C25403C62D388807633 /* libPods-BudgetMonitor.a */,
-				AE14FF99FF93449AF38CA21D /* libPods-BudgetMonitor-BudgetMonitorTests.a */,
-				54E67609F6F076D9954F7573 /* libPods-BudgetMonitor-tvOS.a */,
-				A9BCE37DD8ED0106753A46FB /* libPods-BudgetMonitor-tvOSTests.a */,
+				5E515C25403C62D388807633 /* libPods-DocScan.a */,
+				AE14FF99FF93449AF38CA21D /* libPods-DocScan-DocScanTests.a */,
+				54E67609F6F076D9954F7573 /* libPods-DocScan-tvOS.a */,
+				A9BCE37DD8ED0106753A46FB /* libPods-DocScan-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				1741242125CC3503005E367E /* Resources */,
-				13B07FAE1A68108700A75B9A /* BudgetMonitor */,
+				13B07FAE1A68108700A75B9A /* DocScan */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* BudgetMonitorTests */,
+				00E356EF1AD99517003FC87E /* DocScanTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A57196BEC498E42B4FCA20DC /* Pods */,
@@ -191,10 +191,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BudgetMonitor.app */,
-				00E356EE1AD99517003FC87E /* BudgetMonitorTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* BudgetMonitor-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* BudgetMonitor-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* DocScan.app */,
+				00E356EE1AD99517003FC87E /* DocScanTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* DocScan-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* DocScan-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,14 +202,14 @@
 		A57196BEC498E42B4FCA20DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4F04470DF1114F27EDB27DA6 /* Pods-BudgetMonitor.debug.xcconfig */,
-				88E39443F9E79FB68D47B915 /* Pods-BudgetMonitor.release.xcconfig */,
-				C86100A3B337131E8151719C /* Pods-BudgetMonitor-BudgetMonitorTests.debug.xcconfig */,
-				7AFD1BC78943B1DF724A3CA9 /* Pods-BudgetMonitor-BudgetMonitorTests.release.xcconfig */,
-				915D31D0954503761833B7D6 /* Pods-BudgetMonitor-tvOS.debug.xcconfig */,
-				92CF54855169B2F3D6C34DE7 /* Pods-BudgetMonitor-tvOS.release.xcconfig */,
-				C13E49021402C4A79D56FC3A /* Pods-BudgetMonitor-tvOSTests.debug.xcconfig */,
-				14E55A22F4D28D86A8082A95 /* Pods-BudgetMonitor-tvOSTests.release.xcconfig */,
+				4F04470DF1114F27EDB27DA6 /* Pods-DocScan.debug.xcconfig */,
+				88E39443F9E79FB68D47B915 /* Pods-DocScan.release.xcconfig */,
+				C86100A3B337131E8151719C /* Pods-DocScan-DocScanTests.debug.xcconfig */,
+				7AFD1BC78943B1DF724A3CA9 /* Pods-DocScan-DocScanTests.release.xcconfig */,
+				915D31D0954503761833B7D6 /* Pods-DocScan-tvOS.debug.xcconfig */,
+				92CF54855169B2F3D6C34DE7 /* Pods-DocScan-tvOS.release.xcconfig */,
+				C13E49021402C4A79D56FC3A /* Pods-DocScan-tvOSTests.debug.xcconfig */,
+				14E55A22F4D28D86A8082A95 /* Pods-DocScan-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -217,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* BudgetMonitorTests */ = {
+		00E356ED1AD99517003FC87E /* DocScanTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BudgetMonitorTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DocScanTests" */;
 			buildPhases = (
 				4262FBCBD4B824A20A6F0AE6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -232,14 +232,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = BudgetMonitorTests;
-			productName = BudgetMonitorTests;
-			productReference = 00E356EE1AD99517003FC87E /* BudgetMonitorTests.xctest */;
+			name = DocScanTests;
+			productName = DocScanTests;
+			productReference = 00E356EE1AD99517003FC87E /* DocScanTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* BudgetMonitor */ = {
+		13B07F861A680F5B00A75B9A /* DocScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BudgetMonitor" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DocScan" */;
 			buildPhases = (
 				FEFE433965C76AE1A7B126B0 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -253,14 +253,14 @@
 			);
 			dependencies = (
 			);
-			name = BudgetMonitor;
-			productName = BudgetMonitor;
-			productReference = 13B07F961A680F5B00A75B9A /* BudgetMonitor.app */;
+			name = DocScan;
+			productName = DocScan;
+			productReference = 13B07F961A680F5B00A75B9A /* DocScan.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* BudgetMonitor-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* DocScan-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BudgetMonitor-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DocScan-tvOS" */;
 			buildPhases = (
 				DD4C24E85F43B8345BE6CE8A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -273,14 +273,14 @@
 			);
 			dependencies = (
 			);
-			name = "BudgetMonitor-tvOS";
-			productName = "BudgetMonitor-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* BudgetMonitor-tvOS.app */;
+			name = "DocScan-tvOS";
+			productName = "DocScan-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* DocScan-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* BudgetMonitor-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* DocScan-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BudgetMonitor-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DocScan-tvOSTests" */;
 			buildPhases = (
 				53D28FEC3C32248EA15AE530 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -292,9 +292,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "BudgetMonitor-tvOSTests";
-			productName = "BudgetMonitor-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* BudgetMonitor-tvOSTests.xctest */;
+			name = "DocScan-tvOSTests";
+			productName = "DocScan-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* DocScan-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -324,7 +324,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BudgetMonitor" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DocScan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -337,10 +337,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BudgetMonitor */,
-				00E356ED1AD99517003FC87E /* BudgetMonitorTests */,
-				2D02E47A1E0B4A5D006451C7 /* BudgetMonitor-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* BudgetMonitor-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* DocScan */,
+				00E356ED1AD99517003FC87E /* DocScanTests */,
+				2D02E47A1E0B4A5D006451C7 /* DocScan-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* DocScan-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,7 +417,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BudgetMonitor/Pods-BudgetMonitor-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DocScan/Pods-DocScan-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -462,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BudgetMonitor/Pods-BudgetMonitor-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocScan/Pods-DocScan-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4262FBCBD4B824A20A6F0AE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -480,7 +480,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BudgetMonitor-BudgetMonitorTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DocScan-DocScanTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,7 +502,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BudgetMonitor-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DocScan-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -515,7 +515,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BudgetMonitor-BudgetMonitorTests/Pods-BudgetMonitor-BudgetMonitorTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DocScan-DocScanTests/Pods-DocScan-DocScanTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -560,7 +560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BudgetMonitor-BudgetMonitorTests/Pods-BudgetMonitor-BudgetMonitorTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DocScan-DocScanTests/Pods-DocScan-DocScanTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD4C24E85F43B8345BE6CE8A /* [CP] Check Pods Manifest.lock */ = {
@@ -578,7 +578,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BudgetMonitor-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DocScan-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -638,7 +638,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BudgetMonitor-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DocScan-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -652,7 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* BudgetMonitorTests.m in Sources */,
+				00E356F31AD99517003FC87E /* DocScanTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* BudgetMonitorTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* DocScanTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,12 +687,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* BudgetMonitor */;
+			target = 13B07F861A680F5B00A75B9A /* DocScan */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* BudgetMonitor-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* DocScan-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -700,14 +700,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C86100A3B337131E8151719C /* Pods-BudgetMonitor-BudgetMonitorTests.debug.xcconfig */;
+			baseConfigurationReference = C86100A3B337131E8151719C /* Pods-DocScan-DocScanTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BudgetMonitorTests/Info.plist;
+				INFOPLIST_FILE = DocScanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -717,17 +717,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetMonitor.app/BudgetMonitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocScan.app/DocScan";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFD1BC78943B1DF724A3CA9 /* Pods-BudgetMonitor-BudgetMonitorTests.release.xcconfig */;
+			baseConfigurationReference = 7AFD1BC78943B1DF724A3CA9 /* Pods-DocScan-DocScanTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = BudgetMonitorTests/Info.plist;
+				INFOPLIST_FILE = DocScanTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -737,28 +737,28 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetMonitor.app/BudgetMonitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocScan.app/DocScan";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F04470DF1114F27EDB27DA6 /* Pods-BudgetMonitor.debug.xcconfig */;
+			baseConfigurationReference = 4F04470DF1114F27EDB27DA6 /* Pods-DocScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84M7ZQ423Y;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = BudgetMonitor/Info.plist;
+				INFOPLIST_FILE = DocScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BudgetMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = ro.DocScan;
+				PRODUCT_NAME = DocScan;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -767,21 +767,21 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88E39443F9E79FB68D47B915 /* Pods-BudgetMonitor.release.xcconfig */;
+			baseConfigurationReference = 88E39443F9E79FB68D47B915 /* Pods-DocScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84M7ZQ423Y;
-				INFOPLIST_FILE = BudgetMonitor/Info.plist;
+				INFOPLIST_FILE = DocScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = BudgetMonitor;
+				PRODUCT_BUNDLE_IDENTIFIER = ro.DocScan;
+				PRODUCT_NAME = DocScan;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -789,7 +789,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 915D31D0954503761833B7D6 /* Pods-BudgetMonitor-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 915D31D0954503761833B7D6 /* Pods-DocScan-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -800,14 +800,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BudgetMonitor-tvOS/Info.plist";
+				INFOPLIST_FILE = "DocScan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BudgetMonitor-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DocScan-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -817,7 +817,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92CF54855169B2F3D6C34DE7 /* Pods-BudgetMonitor-tvOS.release.xcconfig */;
+			baseConfigurationReference = 92CF54855169B2F3D6C34DE7 /* Pods-DocScan-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -828,14 +828,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BudgetMonitor-tvOS/Info.plist";
+				INFOPLIST_FILE = "DocScan-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BudgetMonitor-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DocScan-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -845,7 +845,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C13E49021402C4A79D56FC3A /* Pods-BudgetMonitor-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = C13E49021402C4A79D56FC3A /* Pods-DocScan-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -855,24 +855,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BudgetMonitor-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "DocScan-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BudgetMonitor-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DocScan-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetMonitor-tvOS.app/BudgetMonitor-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocScan-tvOS.app/DocScan-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14E55A22F4D28D86A8082A95 /* Pods-BudgetMonitor-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 14E55A22F4D28D86A8082A95 /* Pods-DocScan-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -882,17 +882,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BudgetMonitor-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "DocScan-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BudgetMonitor-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.DocScan-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BudgetMonitor-tvOS.app/BudgetMonitor-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocScan-tvOS.app/DocScan-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1013,7 +1013,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BudgetMonitorTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DocScanTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1022,7 +1022,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BudgetMonitor" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DocScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1031,7 +1031,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BudgetMonitor-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DocScan-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1040,7 +1040,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BudgetMonitor-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DocScan-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1049,7 +1049,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BudgetMonitor" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DocScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
