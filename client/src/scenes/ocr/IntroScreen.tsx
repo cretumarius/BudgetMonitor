@@ -21,7 +21,7 @@ const IntroScreen = ({ navigation }: any) => {
       setBottomSheetIsVisible(false);
       return;
     }
-    DocumentsPicker.pick(userChoice).then((image) => {
+    DocumentsPicker.ocrPick(userChoice).then((image) => {
       console.log(image);
       navigation.navigate('ImagePreview', { image: image });
       setBottomSheetIsVisible(false);
@@ -33,12 +33,14 @@ const IntroScreen = ({ navigation }: any) => {
       <View style={Common.cardContainer}>
         <ImageUploadSVG />
         <Text style={{ fontFamily: Typography.FONT_FAMILY_REGULAR, color: Colors.BLUE, margin: 30 }}>
-          {'Extrage text din imagini (JPG, BMP, TIFF, GIF), permite copierea textului extras în clipboard și export-ul în formate editabile precum Word și PDF.'}
+          {
+            'Extrage text din imagini (JPG, BMP, TIFF, GIF), permite copierea textului extras în clipboard și export-ul în formate editabile precum Word și PDF.'
+          }
         </Text>
         <XButton styles={{ margin: 20 }} title={'Încarcă fotografie'} onPressCallback={showBottomSheet} />
       </View>
       <XBottomSheet
-        options={pickerService.BottomSheetOptionsForImages}
+        options={pickerService.BottomSheetOptions}
         visible={bottomSheetIsVisible}
         selectionCallback={(userChoice) => handleUserSelection(userChoice)}
       />

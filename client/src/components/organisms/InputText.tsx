@@ -32,6 +32,7 @@ export const InputText = (props: {
             <TextInput
               {...properties}
               placeholder={props.placeholder}
+              placeholderTextColor={Colors.GRAY_DARK}
               style={styles.textInput}
               autoCapitalize="none"
               secureTextEntry={props.secureTextEntry && !showPassword}
