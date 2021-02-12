@@ -24,6 +24,7 @@ const ImagePreviewScreen = ({ navigation, route }: any) => {
 
   const onContinueTap = () => {
     setIsLoaderIsVisible(true);
+    console.log(image);
     let data = new FormData();
     data.append('image', {
       uri: image.uri,

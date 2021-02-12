@@ -14,16 +14,17 @@ export function clean() {
     });
 }
 
-export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?: boolean) {
-  return new Promise((resolve, reject) => {
+export async function ocrPick(userChoice: SourcePickerEnum) {
+  return new Promise((resolve) => {
     switch (userChoice) {
       case SourcePickerEnum.LivePhoto: {
         ImagePicker.openCamera({
           mediaType: 'photo',
           forceJpg: true,
           cropping: true,
-          compressImageMaxWidth: 750,
-          compressImageQuality: 1,
+          freeStyleCropEnabled: true,
+          width: 1200, // Add this
+          height: 1500, // Add this
         })
           .then((image) => {
             const splitUri = image.path.split('/');
@@ -35,7 +36,6 @@ export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?
               size: image.size,
               type: image.mime,
               uri: image.path,
-              data: image.data,
             });
           })
           .catch((err) => console.log(err));
@@ -43,56 +43,39 @@ export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?
       }
       case SourcePickerEnum.PhotoLibrary: {
         ImagePicker.openPicker({
-          includeBase64: true,
           mediaType: 'photo',
-          width: SCREEN_WIDTH,
-          compressImageMaxWidth: 750,
-          compressImageQuality: 1,
-          multiple: allowMultipleSelection,
+          forceJpg: true,
+          cropping: true,
+          freeStyleCropEnabled: true,
+          width: 1200, // Add this
+          height: 1500, // Add this
         })
           .then((images) => {
-            if (Array.isArray(images)) {
-              resolve(
-                images.map((i) => ({
-                  name: Platform.select({
-                    ios: i.filename,
-                    android: i.path.substring(i.path.lastIndexOf('/') + 1),
-                  }),
-                  size: i.size,
-                  type: i.mime,
-                  uri: i.path,
-                  data: i.data,
-                })),
-              );
-            } else {
-              resolve({
-                name: Platform.select({
-                  ios: images.filename,
-                  android: images.path.substring(images.path.lastIndexOf('/') + 1),
-                }),
-                size: images.size,
-                type: images.mime,
-                uri: images.path,
-                mime: images.mime,
-                data: images.data,
-              });
-            }
+            resolve({
+              name: Platform.select({
+                ios: images.filename,
+                android: images.path.substring(images.path.lastIndexOf('/') + 1),
+              }),
+              size: images.size,
+              type: images.mime,
+              uri: images.path,
+              mime: images.mime,
+            });
           })
           .catch((err) => console.log(err));
         break;
       }
       case SourcePickerEnum.Files: {
-        loadFiles()
-          .then((files) =>
-            resolve(
-              files.map((file) => ({
-                name: file.name,
-                size: file.size,
-                type: file.type,
-                uri: file.uri,
-              })),
-            ),
-          )
+        loadFiles(true)
+          .then((files) => {
+            const file = files[0];
+            resolve({
+              name: file.name,
+              size: file.size,
+              type: file.type,
+              uri: file.uri,
+            });
+          })
           .catch((err) => console.log(err));
         break;
       }
@@ -102,12 +85,87 @@ export async function pick(userChoice: SourcePickerEnum, allowMultipleSelection?
   });
 }
 
-async function loadFiles() {
+export async function pick(userChoice: SourcePickerEnum) {
+  return new Promise((resolve, reject) => {
+    switch (userChoice) {
+      case SourcePickerEnum.LivePhoto: {
+        ImagePicker.openCamera({
+          forceJpg: true,
+          compressImageMaxWidth: 750,
+          compressImageQuality: 1,
+          mediaType: 'photo',
+        })
+          .then((image) => {
+            const splitUri = image.path.split('/');
+            resolve([
+              {
+                name: Platform.select({
+                  ios: image.filename || splitUri[splitUri.length - 1],
+                  android: image.path.substring(image.path.lastIndexOf('/') + 1),
+                }),
+                size: image.size,
+                type: image.mime,
+                uri: image.path,
+              },
+            ]);
+          })
+          .catch((err) => console.log(err));
+        break;
+      }
+      case SourcePickerEnum.PhotoLibrary: {
+        ImagePicker.openPicker({
+          multiple: true,
+          mediaType: 'photo',
+          compressImageMaxWidth: 590,
+          compressImageQuality: 1,
+        })
+          .then((images) => {
+            resolve(
+              images.map((image) => ({
+                name: Platform.select({
+                  ios: image.filename,
+                  android: image.path.substring(image.path.lastIndexOf('/') + 1),
+                }),
+                size: image.size,
+                type: image.mime,
+                uri: image.path,
+              })),
+            );
+          })
+          .catch((err) => console.log(err));
+        break;
+      }
+      case SourcePickerEnum.Files: {
+        loadFiles(false).then((files) =>
+          resolve(
+            files.map((file) => ({
+              name: file.name,
+              size: file.size,
+              type: file.type,
+              uri: file.uri,
+            })),
+          ),
+        );
+        break;
+      }
+      default:
+        resolve([]);
+    }
+  });
+}
+
+async function loadFiles(ocr: boolean) {
+  let allowedTypes;
+  if (ocr) {
+    allowedTypes = DocumentPicker.types.images;
+  } else {
+    allowedTypes = [DocumentPicker.types.pdf, DocumentPicker.types.images];
+  }
   // Pick multiple files
   try {
     const results = await DocumentPicker.pickMultiple({
       type: Platform.select({
-        ios: [DocumentPicker.types.pdf, DocumentPicker.types.images],
+        ios: allowedTypes,
         android: DocumentPicker.types.pdf,
       }),
       copyTo: 'cachesDirectory',
@@ -118,7 +176,7 @@ async function loadFiles() {
     if (DocumentPicker.isCancel(err)) {
       // User cancelled the picker, exit any dialogs or menus and move on
       console.log('User cancelled the picker, exit any dialogs or menus and move on');
-      return [];
+      throw err;
     } else {
       throw err;
     }

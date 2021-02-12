@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'BudgetMonitor' do
+target 'DocScan' do
 
   permissions_path = '../node_modules/react-native-permissions/ios'
 
@@ -13,7 +13,7 @@ target 'BudgetMonitor' do
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'BudgetMonitorTests' do
+  target 'DocScanTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -28,10 +28,10 @@ target 'BudgetMonitor' do
   end
 end
 
-target 'BudgetMonitor-tvOS' do
-  # Pods for BudgetMonitor-tvOS
+target 'DocScan-tvOS' do
+  # Pods for DocScan-tvOS
 
-  target 'BudgetMonitor-tvOSTests' do
+  target 'DocScan-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

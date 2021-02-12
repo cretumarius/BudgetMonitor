@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "BudgetMonitor-tvOS.app"
-               BlueprintName = "BudgetMonitor-tvOS"
-               ReferencedContainer = "container:BudgetMonitor.xcodeproj">
+               BuildableName = "DocScan-tvOS.app"
+               BlueprintName = "DocScan-tvOS"
+               ReferencedContainer = "container:DocScan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "BudgetMonitor-tvOSTests.xctest"
-               BlueprintName = "BudgetMonitor-tvOSTests"
-               ReferencedContainer = "container:BudgetMonitor.xcodeproj">
+               BuildableName = "DocScan-tvOSTests.xctest"
+               BlueprintName = "DocScan-tvOSTests"
+               ReferencedContainer = "container:DocScan.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BudgetMonitor-tvOS.app"
-            BlueprintName = "BudgetMonitor-tvOS"
-            ReferencedContainer = "container:BudgetMonitor.xcodeproj">
+            BuildableName = "DocScan-tvOS.app"
+            BlueprintName = "DocScan-tvOS"
+            ReferencedContainer = "container:DocScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BudgetMonitor-tvOS.app"
-            BlueprintName = "BudgetMonitor-tvOS"
-            ReferencedContainer = "container:BudgetMonitor.xcodeproj">
+            BuildableName = "DocScan-tvOS.app"
+            BlueprintName = "DocScan-tvOS"
+            ReferencedContainer = "container:DocScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

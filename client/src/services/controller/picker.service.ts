@@ -20,7 +20,7 @@ export class PickerService {
       },
     ];
 
-    this.BottomSheetOptionsForImages = [
+    /*this.BottomSheetOptionsForImages = [
       {
         optionName: 'Cameră foto',
         optionId: SourcePickerEnum.LivePhoto,
@@ -29,7 +29,7 @@ export class PickerService {
         optionName: 'Galerie foto',
         optionId: SourcePickerEnum.PhotoLibrary,
       },
-    ];
+    ];*/
   }
 
   public getSizeInMb = (value: number) => `${(value / Math.pow(1024, 2)).toPrecision(3)} MB`;

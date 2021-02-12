@@ -22,9 +22,6 @@ export function DrawerContent(props) {
     const biometricsConfigured = settings[0] == 'true';
     const userHasSkippedActivation = settings[1] == 'true';
 
-    console.log('biometricsConfigured', biometricsConfigured);
-    console.log('userHasSkippedActivation', userHasSkippedActivation);
-
     if (!biometricsConfigured && userHasSkippedActivation) {
       toggleBiometricsActivationModalVisibleState(true);
     } else {
@@ -104,7 +101,9 @@ export function DrawerContent(props) {
           <Drawer.Section title="Preferințe">
             <TouchableRipple onPress={onBiometricAuthenticationToggle}>
               <View style={styles.preference}>
-                <Text>Autentificare biometrică</Text>
+                <Text style={{ fontFamily: Typography.FONT_FAMILY_LIGHT, color: Colors.BLUE }}>
+                  Autentificare biometrică
+                </Text>
                 <View pointerEvents="none">
                   <Switch
                     value={loginState.biometricsEnabled}
@@ -139,9 +138,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   title: {
+    fontFamily: Typography.FONT_FAMILY_MEDIUM,
     fontSize: 16,
     marginTop: 3,
-    fontWeight: 'bold',
   },
   caption: {
     fontSize: 14,
@@ -172,6 +171,7 @@ const styles = StyleSheet.create({
   preference: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
